@@ -5,7 +5,7 @@ metadata:
   namespace: dev
 data:
   DEBUG: "True"
-  DB_HOST: root
+  DB_HOST: db-task-manager
   DB_NAME: task_manager
   DB_PORT: "3306"
   ALLOWED_HOSTS: "localhost,127.0.0.1,a1be5c20da41d4355a7aef3d9dd4fc75-2086617477.ap-southeast-1.elb.amazonaws.com"
