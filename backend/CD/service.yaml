@@ -4,11 +4,10 @@ metadata:
   name: task-manager-backend-service-svc-dp
   namespace: dev
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector: 
     app: task-manager-service-app
   ports:
     - port: 8000
       targetPort: 8000
       protocol: TCP
-      nodePort: 32767
