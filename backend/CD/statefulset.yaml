@@ -6,7 +6,7 @@ metadata:
 spec:
   minReadySeconds: 3
   replicas: 1
-  serviceName: 
+  serviceName: db-task-manager
   selector:
     matchExpressions:
       - key: app
