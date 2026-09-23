@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db-task-manager
+  namespace: dev
+spec:
+  minReadySeconds: 3
+  replicas: 1
+  serviceName: 
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - db-task-manager
+  template:
+    metadata:
+      labels:
+        app: db-task-manager
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3306
+              protocol: TCP
+          env:
+            - name: MYSQL_DATABASE
+              value: task_manager
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: task-manager-backend-service-secret
+                  key: DB_PASSWORD
+          volumeMounts:
+            - name: task-manager-db
+              mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+    - metadata: 
+        name: task-manager-db
+      spec:
+        accessModes: 
+          - ReadWriteOnce
+        storageClassName: task-manager-ebs
+        resources:
+          requests:
+            storage: 256Mi
