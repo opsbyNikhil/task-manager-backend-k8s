@@ -8,6 +8,6 @@ data:
   DB_HOST: db-task-manager
   DB_NAME: task_manager
   DB_PORT: "3306"
-  ALLOWED_HOSTS: "localhost,127.0.0.1,a0806ee2cfd0048a6a4e64a44e66ce62-360494867.ap-southeast-1.elb.amazonaws.com"
-  CORS_ALLOWED_ORIGINS: http://13.213.19.86:5173
+  ALLOWED_HOSTS: "localhost,127.0.0.1,aa504d5d8d8e7455792097251864f8e9-1925842823.ap-southeast-1.elb.amazonaws.com"
+  CORS_ALLOWED_ORIGINS: http://adfccb4b8e07040b0bb0d355ff8c7aa0-1578965441.ap-southeast-1.elb.amazonaws.com:5173
   RESEND_FROM_EMAIL: "no-reply@mysitedesign.site"
